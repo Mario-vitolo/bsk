@@ -91,14 +91,18 @@ public class Game {
 	public int calculateScore() throws BowlingException {
 		int score = 0; 
 		for( int i =0; i < frames.size(); i++) {
+			//Spare
 			if(frames.get(i).isSpare() && i< frames.size()-1) {
 				frames.get(i).setBonus(frames.get(i+1).getFirstThrow());
 			}
-			
+			//Strike
 			if(frames.get(i).isStrike()) {
-				frames.get(i).setBonus(frames.get(i+1).getScore()+ frames.get(i+2).getScore());
+				if(frames.get(i+1).isStrike()) {
+					frames.get(i).setBonus(frames.get(i+1).getScore() + frames.get(i+2).getFirstThrow());	
+				}else {
+				frames.get(i).setBonus(frames.get(i+1).getScore());
+				}
 			}
-			
 			int frameScore = frames.get(i).getScore() + frames.get(i).getBonus();
 			if(frameScore < 0) {
 				throw new BowlingException("Invalid Score");

@@ -101,7 +101,22 @@ public class GameTest {
 		game.addFrame(new Frame(0, 0));
 		game.addFrame(new Frame(0, 0));
 		
-		assertEquals(14, game.calculateScore());
+		assertEquals(13, game.calculateScore());
 	}
-
+	@Test
+	public void calculateScoreGameWithMultipleStrikeBonus() throws BowlingException {
+		Game game = new Game();
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(10, 0));
+		game.addFrame(new Frame(10, 0));
+		game.addFrame(new Frame(7, 1));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(0, 0));
+		
+		assertEquals(53, game.calculateScore());
+	}
 }
