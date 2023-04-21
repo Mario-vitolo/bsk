@@ -69,5 +69,24 @@ public class GameTest {
 		
 		game.calculateScore();
 	}
+	
+	@Test
+	public void calculateScoreGameWithBonus() throws BowlingException {
+		Game game = new Game();
+		game.addFrame(new Frame(9, 0));
+		game.addFrame(new Frame(5, 0));
+		game.addFrame(new Frame(0, 2));
+		game.addFrame(new Frame(5, 2));
+		game.addFrame(new Frame(8, 2));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(5, 5));
+		game.addFrame(new Frame(7, 3));
+		game.addFrame(new Frame(6, 4));
+		game.addFrame(new Frame(9, 0));
+		
+		assertEquals(88, game.calculateScore());
+	}
+	
+
 
 }

@@ -2,7 +2,8 @@ package tdd.training.bsk;
 
 public class Frame {
 	
-	private int firstThrow, secondThrow;
+	private int firstThrow, secondThrow, bonus;
+	private boolean spare;
 	
 	/**
 	 * It initializes a frame given the pins knocked down in the first and second
@@ -15,6 +16,8 @@ public class Frame {
 	public Frame(int firstThrow, int secondThrow) throws BowlingException {
 		this.firstThrow = firstThrow;
 		this.secondThrow = secondThrow;
+		this.bonus = 0;
+		spare = isSpare();
 	}
 
 	/**
@@ -41,7 +44,7 @@ public class Frame {
 	 * @param bonus The bonus.
 	 */
 	public void setBonus(int bonus) {
-		// To be implemented
+		this.bonus = bonus;
 	}
 
 	/**
@@ -50,8 +53,7 @@ public class Frame {
 	 * @return The bonus.
 	 */
 	public int getBonus() {
-		// To be implemented
-		return 0;
+		return bonus;
 	}
 
 	/**
@@ -60,7 +62,7 @@ public class Frame {
 	 * @return The score
 	 */
 	public int getScore() {
-		return firstThrow + secondThrow;
+		return firstThrow + secondThrow + bonus;
 	}
 
 	/**
@@ -79,7 +81,8 @@ public class Frame {
 	 * @return <true> if spare, <false> otherwise.
 	 */
 	public boolean isSpare() {
-		// To be implemented
+		if(firstThrow != 10 && getScore() == 10)
+			return true;
 		return false;
 	}
 

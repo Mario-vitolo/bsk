@@ -24,5 +24,24 @@ public class FrameTest {
 		Frame frame = new Frame(5, 10);
 		assertEquals(15, frame.getScore());
 	}
-
+	
+	@Test
+	public void isSpare() throws BowlingException {
+		Frame frame = new Frame(9, 1);
+		assertTrue(frame.isSpare());
+	}
+	
+	@Test
+	public void getBonusFrame() throws BowlingException {
+		Frame frame = new Frame(9, 1);
+		frame.setBonus(2);
+		assertEquals(2, frame.getBonus());
+	}
+	
+	@Test
+	public void calculateScoreFrameWithSpareBonus() throws BowlingException {
+		Frame frame = new Frame(9, 1);
+		frame.setBonus(2);
+		assertEquals(12, frame.getScore());
+	}
 }
