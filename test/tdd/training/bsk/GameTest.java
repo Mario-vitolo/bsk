@@ -50,20 +50,20 @@ public class GameTest {
 		game.addFrame(new Frame(5, 0));
 		game.addFrame(new Frame(0, 2));
 		game.addFrame(new Frame(5, 2));
-		game.addFrame(new Frame(8, 2));
+		game.addFrame(new Frame(8, 1));
 		game.addFrame(new Frame(0, 0));
-		game.addFrame(new Frame(5, 5));
-		game.addFrame(new Frame(7, 3));
-		game.addFrame(new Frame(6, 4));
+		game.addFrame(new Frame(5, 4));
+		game.addFrame(new Frame(7, 2));
+		game.addFrame(new Frame(6, 3));
 		game.addFrame(new Frame(9, 0));
 		
-		assertEquals(72, game.calculateScore());
+		assertEquals(68, game.calculateScore());
 	}
 	
 	@Test(expected = BowlingException.class)
 	public void getInvalidScoreFrameGame() throws BowlingException {
 		Game game = new Game();
-		game.addFrame(new Frame(9, 4));
+		game.addFrame(new Frame(0, -1));
 		game.addFrame(new Frame(5, 0));
 		game.addFrame(new Frame(0, 2));
 		
@@ -79,12 +79,12 @@ public class GameTest {
 		game.addFrame(new Frame(5, 2));
 		game.addFrame(new Frame(8, 2));
 		game.addFrame(new Frame(0, 0));
-		game.addFrame(new Frame(5, 5));
-		game.addFrame(new Frame(7, 3));
-		game.addFrame(new Frame(6, 4));
+		game.addFrame(new Frame(1, 5));
+		game.addFrame(new Frame(1, 3));
+		game.addFrame(new Frame(1, 4));
 		game.addFrame(new Frame(9, 0));
 		
-		assertEquals(88, game.calculateScore());
+		assertEquals(57, game.calculateScore());
 	}
 	
 

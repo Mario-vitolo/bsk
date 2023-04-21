@@ -90,9 +90,12 @@ public class Game {
 	 */
 	public int calculateScore() throws BowlingException {
 		int score = 0; 
-		for( Frame frame : frames) {
-			int frameScore = frame.getScore();
-			if(frameScore < 0 || frameScore > 10) {
+		for( int i =0; i < frames.size(); i++) {
+			if(frames.get(i).isSpare() && i< frames.size()-2) {
+				frames.get(i).setBonus(frames.get(i+1).getFirstThrow());
+			}
+			int frameScore = frames.get(i).getScore();
+			if(frameScore < 0) {
 				throw new BowlingException("Invalid Score");
 			}
 			score += frameScore;

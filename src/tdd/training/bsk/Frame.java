@@ -3,7 +3,6 @@ package tdd.training.bsk;
 public class Frame {
 	
 	private int firstThrow, secondThrow, bonus;
-	private boolean spare;
 	
 	/**
 	 * It initializes a frame given the pins knocked down in the first and second
@@ -17,7 +16,6 @@ public class Frame {
 		this.firstThrow = firstThrow;
 		this.secondThrow = secondThrow;
 		this.bonus = 0;
-		spare = isSpare();
 	}
 
 	/**
