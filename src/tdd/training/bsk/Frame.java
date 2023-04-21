@@ -69,7 +69,9 @@ public class Frame {
 	 * @return <true> if strike, <false> otherwise.
 	 */
 	public boolean isStrike() {
-		// To be implemented
+		if(firstThrow == 10) {
+			return true;
+		}
 		return false;
 	}
 
