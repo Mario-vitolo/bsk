@@ -51,4 +51,11 @@ public class FrameTest {
 		
 		assertTrue(frame.isStrike());
 	}
+	
+	@Test
+	public void calculateScoreFrameWithStrikeBonus() throws BowlingException {
+		Frame frame = new Frame(10,0);
+		frame.setBonus(20);
+		assertEquals(30, frame.getScore());
+	}
 }

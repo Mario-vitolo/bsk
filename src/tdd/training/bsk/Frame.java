@@ -60,7 +60,7 @@ public class Frame {
 	 * @return The score
 	 */
 	public int getScore() {
-		return firstThrow + secondThrow + bonus;
+		return firstThrow + secondThrow;
 	}
 
 	/**

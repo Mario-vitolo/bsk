@@ -71,7 +71,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void calculateScoreGameWithBonus() throws BowlingException {
+	public void calculateScoreGameWithSpareBonus() throws BowlingException {
 		Game game = new Game();
 		game.addFrame(new Frame(9, 0));
 		game.addFrame(new Frame(5, 0));
@@ -87,6 +87,21 @@ public class GameTest {
 		assertEquals(57, game.calculateScore());
 	}
 	
-
+	@Test
+	public void calculateScoreGameWithStrikeBonus() throws BowlingException {
+		Game game = new Game();
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(10, 0));
+		game.addFrame(new Frame(1, 0));
+		game.addFrame(new Frame(1, 0));
+		game.addFrame(new Frame(0, 0));
+		game.addFrame(new Frame(0, 0));
+		
+		assertEquals(14, game.calculateScore());
+	}
 
 }
